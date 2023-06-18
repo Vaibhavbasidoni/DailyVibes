@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Vibes</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@100&family=Roboto:ital,wght@1,900&display=swap');
+      </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="main-nav container flex">
+            
+                <div class="company-logo">
+                    <span class="logo-text">Daily Vibes</span>
+                  </div>
+                  
+            </a>
+            <div class="nav-links">
+                <ul class="flex">
+                    <li class="hover-link nav-item active" id="ipl" onclick="showNews('https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=157d5c87b2f3497c99b7e61bd15a4a1d')">Sports</li>
+                    <li class="hover-link nav-item" id="finance" onclick="showNews('https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=157d5c87b2f3497c99b7e61bd15a4a1d')">Buisness</li>
+                    <li class="hover-link nav-item" id="politics" onclick="showNews('https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=157d5c87b2f3497c99b7e61bd15a4a1d')">Technology</li>
+                </ul>
+            </div>
+            <div class="search-bar flex">
+                <input id="searchText" type="text" class="news-input" placeholder="e.g. Science">
+                <button id="searchButton" class="search-button" onclick="searchNews()">Search</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="cards-container container flex" id="cardsContainer"></div>
+    </main>
+
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="" alt="news-image" id="newsImg">
+            </div>
+            <div class="card-content">
+                <h3 id="newsTitle">New Study Shows Benefits of Exercise on Mental Health</h3>
+                <h6 class="news-source" id="newsSource">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="newsDesc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
