@@ -19,6 +19,7 @@ function showNews(apiUrl) {
       .then(data => displayNews(data.articles))
       .catch(error => console.log(error));
   }
+
   
 
 
