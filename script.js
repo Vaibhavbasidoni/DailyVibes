@@ -11,10 +11,13 @@ function showNews(apiUrl) {
 
 function searchNews() {
   const searchText = document.getElementById('searchText').value;
-  const apiKey = '157d5c87b2f3497c99b7e61bd15a4a1d'; // Replace with your News API key
-  const apiUrl = `https://newsapi.org/v2/everything?q=${searchText}&apiKey=${apiKey}`;
+  const apiUrl = `https://newsapi.org/v2/everything?q=${searchText}`;
 
-  fetch(apiUrl)
+  fetch(apiUrl, {
+    headers: {
+      'X-Api-Key': '157d5c87b2f3497c99b7e61bd15a4a1d'
+    }
+  })
     .then(response => response.json())
     .then(data => displayNews(data.articles))
     .catch(error => console.log(error));
@@ -37,7 +40,6 @@ function displayNews(newsData) {
     cardsContainer.appendChild(newsCard);
   });
 }
-
 
 function createNewsCard(news) {
   const newsCard = document.createElement('div');
@@ -106,23 +108,25 @@ function onNavItemClick(category) {
 }
 
 function fetchNews(apiUrl) {
-  fetch(apiUrl)
+  fetch(apiUrl, {
+    headers: {
+      'X-Api-Key': '157d5c87b2f3497c99b7e61bd15a4a1d'
+    }
+  })
     .then(response => response.json())
     .then(data => displayNews(data.articles))
     .catch(error => console.log(error));
 }
 
 function getApiUrl(category) {
-  const apiKey = '157d5c87b2f3497c99b7e61bd15a4a1d'; // Replace with your News API key
-
   if (category === 'ipl') {
-    return `https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=${apiKey}`;
+    return 'https://newsapi.org/v2/top-headlines?country=in&category=sports';
   } else if (category === 'finance') {
-    return `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${apiKey}`;
+    return 'https://newsapi.org/v2/top-headlines?country=in&category=business';
   } else if (category === 'politics') {
-    return `https://newsapi.org/v2/top-headlines?country=in&category=politics&apiKey=${apiKey}`;
+    return 'https://newsapi.org/v2/top-headlines?country=in&category=politics';
   }
-  return `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`;
+  return 'https://newsapi.org/v2/top-headlines?country=in';
 }
 
 const apiUrl = 'https://newsapi.org/v2/everything?q';
@@ -130,7 +134,7 @@ const apiKey = '157d5c87b2f3497c99b7e61bd15a4a1d';
 
 fetch(apiUrl, {
   headers: {
-    'Authorization': `Bearer ${apiKey}`
+    'X-Api-Key': apiKey
   }
 })
   .then(response => response.json())
