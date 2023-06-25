@@ -24,6 +24,12 @@ function displayNews(newsData) {
   const cardsContainer = document.getElementById('cardsContainer');
   cardsContainer.innerHTML = '';
 
+  // Check if newsData is an array
+  if (!Array.isArray(newsData)) {
+    console.error('Invalid news data');
+    return;
+  }
+
   const filteredNews = newsData.filter(news => news.urlToImage && !isInvalidImage(news.urlToImage));
 
   filteredNews.forEach(news => {
@@ -31,6 +37,7 @@ function displayNews(newsData) {
     cardsContainer.appendChild(newsCard);
   });
 }
+
 
 function createNewsCard(news) {
   const newsCard = document.createElement('div');
