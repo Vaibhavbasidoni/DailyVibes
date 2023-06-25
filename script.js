@@ -11,7 +11,7 @@ function showNews(apiUrl) {
 
 function searchNews() {
   const searchText = document.getElementById('searchText').value;
-  const apiUrl = `https://newsapi.org/v2/everything?q=${searchText}`;
+  const apiUrl = ` https://newsapi.org/v2/top-headlines?country=us&apiKey=157d5c87b2f3497c99b7e61bd15a4a1d=${searchText}`;
 
   fetch(apiUrl, {
     headers: {
