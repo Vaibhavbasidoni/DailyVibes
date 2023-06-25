@@ -124,3 +124,17 @@ function getApiUrl(category) {
   }
   return `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`;
 }
+
+const apiUrl = 'https://newsapi.org/v2/everything?q';
+const apiKey = '157d5c87b2f3497c99b7e61bd15a4a1d';
+
+fetch(apiUrl, {
+  headers: {
+    'Authorization': `Bearer ${apiKey}`
+  }
+})
+  .then(response => response.json())
+  .then(data => {
+    // Process the API response
+  })
+  .catch(error => console.log(error));
