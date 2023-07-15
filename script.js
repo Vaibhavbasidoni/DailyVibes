@@ -142,3 +142,6 @@ fetch(apiUrl, {
     // Process the API response
   })
   .catch(error => console.log(error));
+
+
+  
