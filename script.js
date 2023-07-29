@@ -131,10 +131,11 @@ function onNavItemClick(category) {
 }
 
 // Function to get the API URL based on the category
+// Function to get the API URL based on the category
 function getApiUrl(category) {
-  if (category === 'ipl') {
+  if (category === 'sports') {
     return `https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=${apiKey}`;
-  } else if (category === 'finance') {
+  } else if (category === 'business') {
     return `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${apiKey}`;
   } else if (category === 'politics') {
     return `https://newsapi.org/v2/top-headlines?country=in&category=politics&apiKey=${apiKey}`;
