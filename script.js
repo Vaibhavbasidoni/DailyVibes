@@ -142,3 +142,33 @@ function getApiUrl(category) {
   }
   return `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`;
 }
+
+
+async function fetchNews(url) {
+
+  try {
+
+    // fetch logic
+
+  } catch (err) {
+
+    if(err instanceof TypeError) {
+      console.error('Invalid URL');
+    } else if(err instanceof Response) {  
+      if(!err.ok) {
+        console.error('API Error:', err);  
+      }
+    } else {
+      console.error('Unknown Error:', err);
+    }
+
+    displayErrorMessage('Failed to fetch news');
+
+  }
+
+}
+
+
+window.onerror = function(msg, url, lineNo, columnNo, error) {
+  console.error('Error: ', error);
+}
